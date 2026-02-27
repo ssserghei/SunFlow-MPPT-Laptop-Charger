@@ -60,9 +60,12 @@ graph TD
     %% Load
     PD ==> Laptop((Laptop))
 ```
-| Top View |
+<div align="center">
+    
+| System Top View |
 | :---: | 
 | ![Top View](<https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/ba2cd1cfb76640df7c12672f7040a9a51f43a725/Solar%20MPPT%20Charger%20Assembly/main_assembly_3D.jpg.jpg>)|
+</div>
 
 ---
 
@@ -72,7 +75,7 @@ The power conversion stage responsible for efficient energy transfer from solar 
 
 | Top View | Bottom View |
 | :---: | :---: |
-| ![Top View](<Solar MPPT Charger Power/PCB 3D Print_TOP/SSS_MPPT_Charger_Power_PCB 3D Print.png>) | ![Bottom View](<Solar MPPT Charger Power/PCB 3D Print_BOT/SSS_MPPT_Charger_Power_PCB 3D Print.png>)    |
+| ![Top View](<Solar MPPT Charger Power/PCB 3D Print_TOP/SSS_MPPT_Charger_Power_PCB 3D Print.png>) | ![Bottom View](<Solar MPPT Charger Power/PCB 3D Print_BOT/SSS_MPPT_Charger_Power_PCB 3D Print.png>)|
 
 **Documentation:**
 
