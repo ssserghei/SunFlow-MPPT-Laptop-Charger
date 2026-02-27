@@ -1,31 +1,72 @@
 # SunFlow-MPPT-Laptop-Charger/ Solar-to-USB-C Laptop Charger
 ---
 
-This repository contains the documentation and hardware specifications for a modular Solar MPPT Charger system, designed as a 3-layer "sandwich" assembly in Altium Designer.
+## 🚀 About this Repository
+This project started with a practical challenge: I wanted to charge my laptop from a small solar panel that could easily fit into a standard backpack. The goal was to build a compact, reliable setup for autonomous work from any location.
+
+## 💡 Core Concept
+* Portability: The entire system is designed to be carried in a laptop bag alongside your devices.
+* Efficiency: Powered by the LT8491 controller, the system maximizes energy harvest from portable panels using an advanced MPPT algorithm.
+* Current Configuration: Optimized for charging 4S Li-ion battery packs from a 100W folding solar panel (real-world output ~35W).
+* Scalability: The H-Bridge hardware design is robust enough to handle full-sized residential panels (420W / 50V) for charging Lead-Acid batteries.
+* Roadmap: Currently developing an ultra-light version of this controller for hikers and cyclists.
+
+## 📖 Technical Background
+For a deep dive into why you can't just plug a solar panel directly into a laptop, check out my article on LinkedIn:
+👉 [Why can't you just plug a solar panel into a laptop?](https://www.linkedin.com/posts/serghei-speian-668629250_why-cant-you-just-plug-a-solar-panel-into-activity-7426272134324322305-SNG3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD4HanABaPEd2WrWdEWRkD63aSL2CuEYjLA)
 
 ## 🛠 System Architecture
+The project is a modular "sandwich" assembly consisting of three functional layers:  
+* Control Unit: Based on LT8491, handling MPPT algorithms and charging profiles via I2C.  
+* Power Stage: A 4-switch H-Bridge Buck-Boost topology for efficient voltage conversion.  
+* Smart Monitoring (HMI): Features an STM32 MCU, OLED display, and INA237 (16-bit ADC) for precision sensing and standalone power metering.  
 
-The project is designed as a modular high-power solar charging solution, consisting of three interconnected layers that form a high-performance "sandwich" assembly.
-1. MPPT Control Unit (Power Management)
-* Core Controller: Based on the LT8491 High Voltage Buck-Boost Battery Charging Controller.
-* Function: Handles the sophisticated MPPT algorithm and optimized battery charging profiles.
-* Communication: Provides an I2C interface to output system telemetry (voltage, current, and temperature) to the monitoring unit.
-2. Power Stage (H-Bridge)Topology: 
-* Features a 4-switch H-Bridge Buck-Boost configuration.
-* Capability: Efficiently steps voltage up or down, allowing the system to work with solar panel voltages both above and below the battery voltage.
-* Thermal Design: Optimized PCB layout for high-current handling and heat dissipation.
-3. Smart Monitoring & Interface Unit (HMI)Main MCU: STM32 microcontroller that acts as the system's "brain" for data processing and user interface.
-* Visual Interface: Integrated 128x32 OLED display for real-time visualization of power, energy ($Wh$), and charging status.
-* Precision Sensing: Utilizes the INA237 16-bit ADC for ultra-accurate high-side current monitoring up to 85V.
-* Standalone Capability: Equipped with XT-60, USB-A, and USB-C ports, allowing it to function as a universal standalone power meter.
+### 📉 System Diagram
 
+```mermaid
+graph TD
+    %% Power Input
+    PV(Solar Panel 18V-60V) ==> HB[H-Bridge Power Stage]
+
+    subgraph MainBoard [Main Solar Charger Board]
+        HB
+        LT[Control Logic: LT8491]
+        LT -- "Gate Drive" --> HB
+    end
+
+    %% Main Power Path
+    HB ==> OutBus{Power Rail}
+    OutBus ==> Battery[4S Li-Ion Battery]
+
+    subgraph HMI [HMI & Monitor Board]
+        INA[INA237 Sensor]
+        MCU[STM32 MCU]
+        OLED[OLED Display]
+        
+        INA -- "I2C" --> MCU
+        MCU -- "I2C" --> OLED
+    end
+
+    %% Telemetry & Sensing
+    OutBus -. "Sensing" .-> INA
+    LT -. "I2C Telemetry" .-> MCU
+
+    subgraph Output [Output Stage]
+        Battery
+        PD[PD Control]
+        Battery ==> PD
+    end
+    
+    %% Load
+    PD ==> Laptop((Laptop))
+```
 | Top View |
 | :---: | 
 | ![Top View](<https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/ba2cd1cfb76640df7c12672f7040a9a51f43a725/Solar%20MPPT%20Charger%20Assembly/main_assembly_3D.jpg.jpg>)|
 
 ---
 
-### 2. MPPT Charger Power
+### 1. MPPT Charger Power
 
 The power conversion stage responsible for efficient energy transfer from solar panels to batteries.
 
@@ -41,7 +82,7 @@ The power conversion stage responsible for efficient energy transfer from solar 
 
 ---
 
-### 3. MPPT Charger Control
+### 2. MPPT Charger Control
 
 The logic and control unit that manages the charging profiles, display interface, and communications.
 
@@ -56,7 +97,7 @@ The logic and control unit that manages the charging profiles, display interface
 * 📋 [Bill of Materials (BOM)](https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/ba2cd1cfb76640df7c12672f7040a9a51f43a725/Solar%20MPPT%20Charger%20Control/BOM%20Factory/SSS_MPPT_Charger_Control_BOM.xlsx)
 
 ---
-### 1. Current Monitoring Tool (Standalone/Integrated)
+### 3. Current Monitoring Tool (Standalone/Integrated)
 
 A high-precision power analyzer based on the **INA237** (16-bit, 85V). It features a unique star-shaped layout with XT-60, USB-A, and USB-C connectors.
 
@@ -86,4 +127,3 @@ Please note that this repository contains documentation only (PDF Schematics, As
 Important: The project is currently in the second prototype design stage and may contain errors or unverified hardware configurations. If you are interested in replicating this design, please wait for the official test results and hardware validation.
 
 ---
-
