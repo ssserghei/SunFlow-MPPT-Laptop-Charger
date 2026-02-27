@@ -79,7 +79,7 @@ The power conversion stage responsible for efficient energy transfer from solar 
 
 **Documentation:**
 
-* 📄 [Schematic (PDF)](https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/811f29efc645808a5f0bbe54c9bd5787e2f680a9/Solar%20MPPT%20Charger%20Power/Schematic%20Prints/SSS_MPPT_Charger_Power.PDF)
+* 📄 [Schematic (PDF)](https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/a3bc54ebf10bc31cd3824383045d63d53d4f970b/Solar%20MPPT%20Charger%20Power/Schematic%20Prints/SSS_MPPT_Charger_Power.PDF)
 * 🛠️ [Assembly Drawing](https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/811f29efc645808a5f0bbe54c9bd5787e2f680a9/Solar%20MPPT%20Charger%20Power/Assembly%20drawing/SSS_MPPT_Charger_Power_Assembly%20drawing.PDF)
 * 📋 [Bill of Materials (BOM)](https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/811f29efc645808a5f0bbe54c9bd5787e2f680a9/Solar%20MPPT%20Charger%20Power/BOM%20Factory/SSS_MPPT_Charger_Power_BOM.xlsx)
 
