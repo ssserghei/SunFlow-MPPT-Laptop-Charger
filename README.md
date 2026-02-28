@@ -110,7 +110,7 @@ A high-precision power analyzer based on the **INA237** (16-bit, 85V). It featur
 
 **Documentation:**
 
-* 📄 [Schematic (PDF)](https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/ba2cd1cfb76640df7c12672f7040a9a51f43a725/Solar%20MPPT%20Charger%20Current%20Monitoring%20Tool/Schematic%20Prints/SSS_Current_Monitoring.PDF)
+* 📄 [Schematic (PDF)](https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/7f5d2527201eb6fda3c5b23ebc354246f44d48a7/Solar%20MPPT%20Charger%20Current%20Monitoring%20Tool/Schematic%20Prints/SSS_Current_Monitoring.PDF)
 * 🛠️ [Assembly Drawing](https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/ba2cd1cfb76640df7c12672f7040a9a51f43a725/Solar%20MPPT%20Charger%20Current%20Monitoring%20Tool/Assembly%20drawing/SSS_Current_Monitoring_Assembly%20drawing.PDF)
 * 📋 [Bill of Materials (BOM)](https://github.com/ssserghei/SunFlow-MPPT-Laptop-Charger/blob/ba2cd1cfb76640df7c12672f7040a9a51f43a725/Solar%20MPPT%20Charger%20Current%20Monitoring%20Tool/BOM%20Factory/SSS_Current_Monitoring_BOM.xlsx)
   
